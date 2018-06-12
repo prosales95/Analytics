@@ -1,0 +1,35 @@
+<!--
+  Generated template for the QuotesList page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Quotes List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-item>
+<ion-input type="text" placeholder="Search Quotes..." (input)="searchQuotes($event)"></ion-input>
+	</ion-item>
+
+	<ion-list *ngIf="!isfiltered">
+		<ion-item *ngFor="let quote1 of quotesList" (click)="itemTapped($event, quote1)">
+			<h2>{{quote1.author}}</h2>
+			<p class="item-description">{{quote1.quote}}</p>
+		</ion-item>
+	</ion-list>
+
+	<ion-list *ngIf="isfiltered">
+		<ion-item *ngFor="let quote of filteredQuotes" (click)="itemTapped($event, quote)">
+			<h2>{{quote.author}}</h2>
+			<p class="item-description">{{quote.quote}}</p>
+		</ion-item>
+	</ion-list>
+
+</ion-content>
